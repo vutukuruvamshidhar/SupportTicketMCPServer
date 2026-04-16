@@ -1,5 +1,6 @@
-Requestor: ${}
-Description: ${}
-Company Name: ${}
-Priority: ${}
-Assignee: ${}
+requestorName: ${}
+ticketDescription: ${}
+companyName: ${}
+priority: ${}
+assigneeName: ${}
+assigneeEmail: ${}

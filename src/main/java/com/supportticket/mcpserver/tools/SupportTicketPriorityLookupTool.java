@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * annotation scanner at application startup.</p>
  */
 @Component
-public class SupportTicketTool {
+public class SupportTicketPriorityLookupTool {
 
     private final SupportTicketRepo supportTicketRepo;
 
@@ -24,7 +24,7 @@ public class SupportTicketTool {
      *
      * @param supportTicketRepo repository used to look up company priorities
      */
-    public SupportTicketTool(SupportTicketRepo supportTicketRepo) {
+    public SupportTicketPriorityLookupTool(SupportTicketRepo supportTicketRepo) {
         this.supportTicketRepo = supportTicketRepo;
     }
 

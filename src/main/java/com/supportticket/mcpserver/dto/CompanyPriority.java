@@ -1,6 +1,6 @@
 package com.supportticket.mcpserver.dto;
 
-import com.supportticket.mcpserver.tools.SupportTicketTool;
+import com.supportticket.mcpserver.tools.SupportTicketPriorityLookupTool;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
  * JPA entity representing a row in the {@code CompanyPriority} table.
  *
  * <p>Maps the company-to-priority relationship stored in the database, used
- * by {@link SupportTicketTool} to resolve the ticket priority for a given
+ * by {@link SupportTicketPriorityLookupTool} to resolve the ticket priority for a given
  * company at tool invocation time.</p>
  */
 @Entity

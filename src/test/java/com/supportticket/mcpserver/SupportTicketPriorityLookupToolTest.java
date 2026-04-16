@@ -3,7 +3,7 @@ package com.supportticket.mcpserver;
 import com.supportticket.mcpserver.dto.CompanyPriority;
 import com.supportticket.mcpserver.dto.PriorityResponse;
 import com.supportticket.mcpserver.repository.SupportTicketRepo;
-import com.supportticket.mcpserver.tools.SupportTicketTool;
+import com.supportticket.mcpserver.tools.SupportTicketPriorityLookupTool;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,27 +16,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 /**
- * Unit tests for {@link SupportTicketTool}.
+ * Unit tests for {@link SupportTicketPriorityLookupTool}.
  *
  * <p>Verifies that the priority lookup tool correctly delegates to
  * {@link SupportTicketRepo} and returns a well-formed {@link PriorityResponse},
  * including the default fallback when no record is found.</p>
  */
 @ExtendWith(MockitoExtension.class)
-class SupportTicketToolTest {
+class SupportTicketPriorityLookupToolTest {
 
     @Mock
     private SupportTicketRepo supportTicketRepo;
 
-    private SupportTicketTool tool;
+    private SupportTicketPriorityLookupTool tool;
 
     /**
-     * Creates a fresh {@link SupportTicketTool} with the mocked repository
+     * Creates a fresh {@link SupportTicketPriorityLookupTool} with the mocked repository
      * before each test.
      */
     @BeforeEach
     void setUp() {
-        tool = new SupportTicketTool(supportTicketRepo);
+        tool = new SupportTicketPriorityLookupTool(supportTicketRepo);
     }
 
     /**

@@ -2,6 +2,7 @@ package com.supportticket.mcpserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * Entry point for the Support Ticket MCP Server application.
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * resources, and tools with the Model Context Protocol server runtime.</p>
  */
 @SpringBootApplication
+@EnableFeignClients
 public class SupportTicketMCPServerApplication {
 
     /**
