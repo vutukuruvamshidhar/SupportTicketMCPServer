@@ -1,4 +1,4 @@
-package com.supportticket.mcpserver;
+package com.supportticket.mcpserver.prompts;
 
 import io.modelcontextprotocol.spec.McpSchema;
 import org.springaicommunity.mcp.annotation.McpPrompt;

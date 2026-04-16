@@ -1,5 +1,6 @@
 package com.supportticket.mcpserver;
 
+import com.supportticket.mcpserver.resources.SupportTicketResource;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

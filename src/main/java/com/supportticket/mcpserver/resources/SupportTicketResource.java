@@ -1,4 +1,4 @@
-package com.supportticket.mcpserver;
+package com.supportticket.mcpserver.resources;
 
 import io.modelcontextprotocol.spec.McpSchema;
 import org.springaicommunity.mcp.annotation.McpResource;
