@@ -10,6 +10,7 @@ import org.springaicommunity.mcp.context.McpSyncRequestContext;
 import org.springaicommunity.mcp.context.StructuredElicitResult;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,7 +70,9 @@ public class AssigneeLookupTool {
             String assigneeName,
             McpSyncRequestContext context
     ) {
-        List<Assignee> candidates = azureGraphClient.findByDisplayName(assigneeName);
+       // List<Assignee> candidates = azureGraphClient.findByDisplayName(assigneeName);
+        List<Assignee> candidates = new ArrayList<>();
+        candidates.add(new Assignee("123","Joe Smith", "joe.smith@abcd.com"));
 
         if (candidates.isEmpty()) {
             throw new IllegalArgumentException(

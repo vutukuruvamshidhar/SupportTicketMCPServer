@@ -2,7 +2,6 @@ package com.supportticket.mcpserver.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.time.LocalDateTime;
 
 /**
  * Represents a support ticket used as both the request body sent to the
@@ -34,7 +33,7 @@ public class Ticket {
     private String assigneeEmail;
 
     /** Timestamp when the ticket was created; set after a successful API response. */
-    private LocalDateTime creationDate;
+    private String creationDate;
 
     /** Outcome of the creation attempt; {@code "success"} on success. */
     private String status;
@@ -56,7 +55,7 @@ public class Ticket {
      */
     public Ticket(String requestorName, String ticketDescription, String companyName,
                   Integer priority, String assigneeName, String assigneeEmail,
-                  LocalDateTime creationDate, String status) {
+                  String creationDate, String status) {
         this.requestorName = requestorName;
         this.ticketDescription = ticketDescription;
         this.companyName = companyName;
@@ -85,8 +84,8 @@ public class Ticket {
     public String getAssigneeEmail() { return assigneeEmail; }
     public void setAssigneeEmail(String assigneeEmail) { this.assigneeEmail = assigneeEmail; }
 
-    public LocalDateTime getCreationDate() { return creationDate; }
-    public void setCreationDate(LocalDateTime creationDate) { this.creationDate = creationDate; }
+    public String getCreationDate() { return creationDate; }
+    public void setCreationDate(String creationDate) { this.creationDate = creationDate; }
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }

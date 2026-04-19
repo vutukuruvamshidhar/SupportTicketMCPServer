@@ -1,6 +1,6 @@
 package com.supportticket.mcpserver;
 
-import com.supportticket.mcpserver.client.TicketApiClient;
+import com.supportticket.mcpserver.apiclient.TicketApiClient;
 import com.supportticket.mcpserver.dto.Ticket;
 import com.supportticket.mcpserver.exception.TicketCreationException;
 import com.supportticket.mcpserver.tools.TicketCreationTool;

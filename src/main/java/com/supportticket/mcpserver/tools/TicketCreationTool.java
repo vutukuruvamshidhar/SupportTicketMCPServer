@@ -1,6 +1,6 @@
 package com.supportticket.mcpserver.tools;
 
-import com.supportticket.mcpserver.client.TicketApiClient;
+import com.supportticket.mcpserver.apiclient.TicketApiClient;
 import com.supportticket.mcpserver.dto.Ticket;
 import com.supportticket.mcpserver.exception.TicketCreationException;
 import feign.FeignException;
@@ -9,6 +9,7 @@ import org.springaicommunity.mcp.annotation.McpToolParam;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * MCP tool that creates a new support ticket via the ticketing REST API.
@@ -76,6 +77,8 @@ public class TicketCreationTool {
             @McpToolParam(description = "Email address of the support agent to assign", required = true)
             String assigneeEmail
     ) {
+
+        System.out.println("===========================inside Ticket Creation Tool");
         Ticket request = new Ticket(
                 requestorName, ticketDescription, companyName,
                 priority, assigneeName, assigneeEmail,
@@ -84,7 +87,7 @@ public class TicketCreationTool {
 
         try {
             Ticket response = ticketApiClient.createTicket(request);
-            response.setCreationDate(LocalDateTime.now());
+            response.setCreationDate(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
             response.setStatus("success");
             return response;
         } catch (FeignException e) {

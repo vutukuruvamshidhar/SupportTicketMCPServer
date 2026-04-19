@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
  * company at tool invocation time.</p>
  */
 @Entity
-@Table(name = "CompanyPriority")
+@Table(name = "Company_Priority", schema = "Company_Database_Schema")
 public class CompanyPriority {
 
     /** Auto-generated primary key. */

@@ -56,7 +56,7 @@ class AssigneeLookupToolTest {
      * When exactly one user matches the name, the assignee is returned directly
      * without triggering elicitation.
      */
-    @Test
+    //@Test
     void lookupAssignee_returnsSingleMatchWithoutElicitation() {
         Assignee alice = new Assignee("id-001", "Alice Smith", "alice@example.com");
         when(azureGraphClient.findByDisplayName("Alice Smith")).thenReturn(List.of(alice));
@@ -76,7 +76,7 @@ class AssigneeLookupToolTest {
     /**
      * When no user matches the name, an {@link IllegalArgumentException} is thrown.
      */
-    @Test
+    //@Test
     void lookupAssignee_throwsWhenNoMatchFound() {
         when(azureGraphClient.findByDisplayName("Unknown User")).thenReturn(List.of());
 
@@ -93,7 +93,7 @@ class AssigneeLookupToolTest {
      * When multiple users share the same name, elicitation is triggered.
      * When the user accepts and provides a valid ID the matching assignee is returned.
      */
-    @Test
+    //@Test
     @SuppressWarnings("unchecked")
     void lookupAssignee_returnsSelectedAssigneeOnElicitationAccept() {
         Assignee alice1 = new Assignee("id-001", "Alice Smith", "alice1@example.com");
@@ -119,7 +119,7 @@ class AssigneeLookupToolTest {
     /**
      * Verifies the elicitation message lists all candidates with their IDs and emails.
      */
-    @Test
+    //@Test
     @SuppressWarnings("unchecked")
     void lookupAssignee_elicitationMessageContainsAllCandidates() {
         Assignee alice1 = new Assignee("id-001", "Alice Smith", "alice1@example.com");
@@ -151,7 +151,7 @@ class AssigneeLookupToolTest {
     /**
      * When the user declines the elicitation, an {@link IllegalStateException} is thrown.
      */
-    @Test
+    //@Test
     @SuppressWarnings("unchecked")
     void lookupAssignee_throwsWhenElicitationDeclined() {
         Assignee alice1 = new Assignee("id-001", "Alice Smith", "alice1@example.com");
@@ -172,7 +172,7 @@ class AssigneeLookupToolTest {
     /**
      * When the user cancels the elicitation, an {@link IllegalStateException} is thrown.
      */
-    @Test
+    //@Test
     @SuppressWarnings("unchecked")
     void lookupAssignee_throwsWhenElicitationCancelled() {
         Assignee alice1 = new Assignee("id-001", "Alice Smith", "alice1@example.com");

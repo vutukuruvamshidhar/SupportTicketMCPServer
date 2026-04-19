@@ -1,4 +1,4 @@
-package com.supportticket.mcpserver.client;
+package com.supportticket.mcpserver.apiclient;
 
 import com.supportticket.mcpserver.dto.Ticket;
 import org.springframework.cloud.openfeign.FeignClient;
