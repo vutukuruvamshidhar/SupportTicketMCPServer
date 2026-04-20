@@ -1,6 +1,8 @@
 package com.supportticket.mcpserver.prompts;
 
 import io.modelcontextprotocol.spec.McpSchema;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpPrompt;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,8 @@ import java.util.List;
  */
 @Component
 public class SupportTicketPrompts {
+
+    private static final Logger log = LoggerFactory.getLogger(SupportTicketPrompts.class);
 
     /**
      * Returns the prompt that instructs an AI assistant to create and assign a
@@ -40,6 +44,7 @@ public class SupportTicketPrompts {
         String userMessage = new ClassPathResource("ticket_creation_prompt.txt")
                 .getContentAsString(StandardCharsets.UTF_8);
 
+        log.info("inside createAndAssignTicketPrompt");
         return new McpSchema.GetPromptResult(
                 "Create and assign a support ticket",
                 List.of(new McpSchema.PromptMessage(

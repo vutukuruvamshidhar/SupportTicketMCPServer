@@ -3,6 +3,8 @@ package com.supportticket.mcpserver.tools;
 import com.supportticket.mcpserver.dto.CompanyPriority;
 import com.supportticket.mcpserver.dto.PriorityResponse;
 import com.supportticket.mcpserver.repository.SupportTicketRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpTool;
 import org.springaicommunity.mcp.annotation.McpToolParam;
 import org.springframework.stereotype.Component;
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SupportTicketPriorityLookupTool {
+
+    private static final Logger log = LoggerFactory.getLogger(SupportTicketPriorityLookupTool.class);
 
     private final SupportTicketRepo supportTicketRepo;
 
@@ -56,6 +60,7 @@ public class SupportTicketPriorityLookupTool {
             @McpToolParam(description = "Name of the company for which to resolve the ticket priority", required = true)
             String companyName
     ) {
+        log.info("lookupPriority Tool called");
         Integer priority = supportTicketRepo.findByCompanyName(companyName)
                 .map(CompanyPriority::getPriority)
                 .orElse(3);

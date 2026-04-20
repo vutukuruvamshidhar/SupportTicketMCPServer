@@ -4,6 +4,8 @@ import com.supportticket.mcpserver.apiclient.TicketApiClient;
 import com.supportticket.mcpserver.dto.Ticket;
 import com.supportticket.mcpserver.exception.TicketCreationException;
 import feign.FeignException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpTool;
 import org.springaicommunity.mcp.annotation.McpToolParam;
 import org.springframework.stereotype.Component;
@@ -24,6 +26,8 @@ import java.time.format.DateTimeFormatter;
  */
 @Component
 public class TicketCreationTool {
+
+    private static final Logger log = LoggerFactory.getLogger(TicketCreationTool.class);
 
     private final TicketApiClient ticketApiClient;
 
@@ -78,7 +82,7 @@ public class TicketCreationTool {
             String assigneeEmail
     ) {
 
-        System.out.println("===========================inside Ticket Creation Tool");
+        log.info("Ticket Creation Tool called");
         Ticket request = new Ticket(
                 requestorName, ticketDescription, companyName,
                 priority, assigneeName, assigneeEmail,

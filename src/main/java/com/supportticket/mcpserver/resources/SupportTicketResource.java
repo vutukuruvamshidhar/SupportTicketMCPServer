@@ -1,6 +1,8 @@
 package com.supportticket.mcpserver.resources;
 
 import io.modelcontextprotocol.spec.McpSchema;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -19,6 +21,8 @@ import java.util.List;
  */
 @Component
 public class SupportTicketResource {
+
+    private static final Logger log = LoggerFactory.getLogger(SupportTicketResource.class);
 
     /**
      * Returns the ticket creation template as an MCP resource.
@@ -40,6 +44,7 @@ public class SupportTicketResource {
             mimeType = "text/plain"
     )
     public McpSchema.ReadResourceResult getTicketCreationTemplate() throws IOException {
+        log.info("*********Resources called***********");
         String content = new ClassPathResource("ticket_creation_template.txt")
                 .getContentAsString(StandardCharsets.UTF_8);
 

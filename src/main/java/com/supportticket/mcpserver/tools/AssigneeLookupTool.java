@@ -4,6 +4,8 @@ import com.supportticket.mcpserver.dto.Assignee;
 import com.supportticket.mcpserver.dto.AssigneeSelection;
 import com.supportticket.mcpserver.service.AzureGraphClient;
 import io.modelcontextprotocol.spec.McpSchema;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpTool;
 import org.springaicommunity.mcp.annotation.McpToolParam;
 import org.springaicommunity.mcp.context.McpSyncRequestContext;
@@ -24,6 +26,8 @@ import java.util.stream.Collectors;
  */
 @Component
 public class AssigneeLookupTool {
+
+    private static final Logger log = LoggerFactory.getLogger(AssigneeLookupTool.class);
 
     private final AzureGraphClient azureGraphClient;
 
@@ -70,9 +74,12 @@ public class AssigneeLookupTool {
             String assigneeName,
             McpSyncRequestContext context
     ) {
+
+        log.info("inside lookupAssignee Tool");
        // List<Assignee> candidates = azureGraphClient.findByDisplayName(assigneeName);
         List<Assignee> candidates = new ArrayList<>();
         candidates.add(new Assignee("123","Joe Smith", "joe.smith@abcd.com"));
+        candidates.add(new Assignee("345","Joe Smiths", "joe.smiths@abcd.com"));
 
         if (candidates.isEmpty()) {
             throw new IllegalArgumentException(

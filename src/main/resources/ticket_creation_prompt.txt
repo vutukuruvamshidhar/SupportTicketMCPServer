@@ -10,9 +10,12 @@ REQUIRED PROCESS (Follow Exactly)
 
 From the user’s request, extract:
 Description
-requester identity/contact (if available)
+requester identity/contact (Mandatory)
 Assignee Name
 Requester Company Name
+
+ Rules:
+If any of the above fields cannot be extracted, ask the user to enter them.
 
 2. Generate Ticket Content Using the MCP Template
 
@@ -63,3 +66,7 @@ priority is resolved
 Then call the MCP tool to create the ticket.
 Tool call example:
 createTicket
+
+7. After createTicket succeeds, show the EXACT ticket object returned by the tool
+   inside a fenced code block (```json ... ```) — do not summarise or reformat it.
+   Then add a short friendly confirmation sentence below the code block.
